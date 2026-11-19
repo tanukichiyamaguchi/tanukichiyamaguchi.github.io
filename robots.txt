@@ -1,0 +1,10 @@
+# katestagelash.jp の robots.txt
+# 検索エンジンが読む robots.txt はドメイン直下のこのファイルだけです。
+# /Brand/ と /KATE-HP/ のサイトマップは、それぞれのリポジトリにあります。
+
+User-agent: *
+Allow: /
+
+Sitemap: https://katestagelash.jp/sitemap.xml
+Sitemap: https://katestagelash.jp/Brand/sitemap.xml
+Sitemap: https://katestagelash.jp/KATE-HP/sitemap.xml
