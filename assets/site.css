@@ -1,0 +1,355 @@
+/* katestagelash.jp のトップ（入口のページ）と 404 ページのスタイル
+   色と書体は /Brand/（生成り・金・ローズ）と /KATE-HP/（黒・真鍮）に合わせています */
+
+:root {
+  --paper: #FAF9F6;
+  --card: #FFFFFF;
+  --ink: #191512;
+  --text: #282217;
+  --mute: #6E6455;
+  --gold: #C9A45C;
+  --gold-t: #7A6023;
+  --rose: #9C3549;
+  --night: #111110;
+  --on-night: #F4F0E7;
+  --on-night-mute: #BDB29E;
+  --brass: #ECD9A6;
+  --hair: rgba(143, 111, 46, .22);
+  --f-serif: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  --f-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", Meiryo, sans-serif;
+  --radius: 14px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--f-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+/* メニュー名や住所の途中で折り返さない（区切りの「・」や空白でだけ折り返す） */
+.nw {
+  display: inline-block;
+}
+
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 20px calc(28px + env(safe-area-inset-bottom));
+}
+
+/* 店名 */
+.top {
+  padding: 30px 0 20px;
+  text-align: center;
+}
+
+.top__kicker {
+  margin: 0 0 10px;
+  color: var(--gold-t);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.top__name {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--f-serif);
+  font-weight: 600;
+  font-size: clamp(23px, 6.4vw, 34px);
+  line-height: 1.45;
+  letter-spacing: .04em;
+}
+
+/* 「ケイトステージラッシュ」と「蒲田西口店」の間でだけ折り返す */
+.top__name span {
+  display: inline-block;
+}
+
+.top__lead {
+  margin: 10px 0 0;
+  color: var(--mute);
+  font-size: 14px;
+  letter-spacing: .08em;
+}
+
+.top__rule {
+  width: 40px;
+  height: 1px;
+  margin: 16px auto 0;
+  background: var(--gold);
+}
+
+/* 店内の写真（スマホでも2つの入口がすぐ見えるよう、横長に切り出す） */
+.photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  aspect-ratio: 2 / 1;
+  background: #ECE8DF;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
+
+/* ページを選ぶ */
+.choose {
+  margin: 28px 0 0;
+}
+
+.choose__title {
+  margin: 0 0 14px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-align: center;
+}
+
+.choose__list {
+  display: grid;
+  gap: 14px;
+}
+
+.choice {
+  display: block;
+  padding: 22px 20px 20px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.choice--women {
+  background: var(--card);
+  border: 1px solid var(--hair);
+  box-shadow: 0 1px 2px rgba(25, 21, 18, .04), 0 8px 24px rgba(143, 111, 46, .08);
+}
+
+.choice--men {
+  background: var(--night);
+  border: 1px solid var(--night);
+  color: var(--on-night);
+  box-shadow: 0 8px 24px rgba(17, 17, 16, .18);
+}
+
+.choice__who {
+  display: block;
+  font-family: var(--f-serif);
+  font-weight: 600;
+  font-size: 21px;
+  line-height: 1.4;
+  letter-spacing: .04em;
+}
+
+.choice--women .choice__who {
+  color: var(--rose);
+}
+
+.choice--men .choice__who {
+  color: var(--brass);
+}
+
+.choice__menu {
+  display: block;
+  margin-top: 6px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.choice--women .choice__menu {
+  color: var(--mute);
+}
+
+.choice--men .choice__menu {
+  color: var(--on-night-mute);
+}
+
+.choice__go {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.choice--women .choice__go {
+  color: var(--ink);
+}
+
+.choice--men .choice__go {
+  color: var(--on-night);
+}
+
+.choice__arrow {
+  transition: transform .2s ease;
+}
+
+@media (hover: hover) {
+  .choice:hover {
+    transform: translateY(-2px);
+  }
+
+  .choice:hover .choice__arrow {
+    transform: translateX(4px);
+  }
+}
+
+.choice:focus-visible,
+.info a:focus-visible,
+.foot a:focus-visible,
+.back a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* サロン情報 */
+.info {
+  margin: 36px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair);
+}
+
+.info__title {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-family: var(--f-serif);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: .06em;
+}
+
+.info__list {
+  margin: 0;
+}
+
+.info__list div {
+  display: grid;
+  grid-template-columns: 5.5em 1fr;
+  gap: 4px 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hair);
+}
+
+.info__list dt {
+  color: var(--mute);
+  font-size: 13px;
+}
+
+.info__list dd {
+  margin: 0;
+  font-size: 14px;
+}
+
+.info__list a {
+  color: var(--gold-t);
+  font-weight: 700;
+}
+
+/* フッター */
+.foot {
+  margin-top: 28px;
+  color: var(--mute);
+  font-size: 12.5px;
+  text-align: center;
+}
+
+.foot p {
+  margin: 4px 0;
+}
+
+.foot a {
+  color: var(--mute);
+}
+
+/* 404 ページ */
+.top--404 .top__name {
+  font-size: clamp(20px, 5.6vw, 28px);
+}
+
+.back {
+  margin: 24px 0 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.back a {
+  color: var(--gold-t);
+  font-weight: 700;
+}
+
+@media (min-width: 760px) {
+  .page {
+    max-width: 880px;
+    padding: 0 32px 40px;
+  }
+
+  .top {
+    padding: 56px 0 30px;
+  }
+
+  .photo {
+    aspect-ratio: 3 / 1;
+  }
+
+  .choose__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .choice {
+    padding: 28px 26px 24px;
+  }
+
+  .choice__who {
+    font-size: 23px;
+  }
+
+  .info {
+    max-width: 640px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .choice,
+  .choice__arrow {
+    transition: none;
+  }
+
+  .choice:hover,
+  .choice:hover .choice__arrow {
+    transform: none;
+  }
+}
